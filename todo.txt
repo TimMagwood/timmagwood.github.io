@@ -1,0 +1,10 @@
+Things to learn
+- Scripting
+- Python web scraping
+- Algorithms
+- How to port projects to github pages
+
+Projects to develop:
+- Interactive cube game
+- Maze solver
+- Personal portfolio site
