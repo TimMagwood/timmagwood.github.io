@@ -21,11 +21,6 @@ body {
     height: 40px;
 }
 
-.start-menu-btn {
-    display: flex;
-    align-items: center;
-}
-
 .start-btn {
     background: radial-gradient(#1a901c, #0e6512);
     color: white;
@@ -43,12 +38,11 @@ body {
 }
 
 .start-menu {
-    display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    background-color: white;
+    bottom: 40px;
+    display: none;
+    padding: 10px;
 }
 
 .start-menu a {
@@ -58,11 +52,9 @@ body {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.start-menu a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+.start-menu a:hover {
+    background-color: #ddd;
+}
 
 .quick-launch {
     display: flex;

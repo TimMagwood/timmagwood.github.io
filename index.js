@@ -4,7 +4,7 @@ document.getElementById('startButton').addEventListener('click', function() {
     // Toggle visibility of the start menu
     if (startMenu.style.display === "none" || startMenu.style.display === "") {
         startMenu.style.display = "block";
-        startMenu.style.marginBottom = startButton.offsetHeight.toString() + 'px';
+        // startMenu.style.marginBottom = `${startButton.offsetHeight.toString()}px`;
     } else {
         startMenu.style.display = "none";
     }
