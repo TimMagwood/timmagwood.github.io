@@ -1,3 +1,12 @@
+// import { clippy } from './node_modules/clippyjs/dist/clippy'
+
+// window.CLIPPY_CDN = 'https://cdn.jsdelivr.net/gh/pi0/clippyjs/assets/agents/'
+
+// clippy.load('Clippy', (agent) => {
+//     agent.show();
+//     agent.speak("Hello World!");
+// })
+
 document.getElementById('startButton').addEventListener('click', function() {
     const startButton = document.getElementById('startButton');
     const startMenu = document.getElementById('startMenu');
