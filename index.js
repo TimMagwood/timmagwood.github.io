@@ -7,6 +7,10 @@
 //     agent.speak("Hello World!");
 // })
 
+function openMazeSolver() {
+    location.href = "./MazeSolver/index.html"
+}
+
 document.getElementById('startButton').addEventListener('click', function() {
     const startButton = document.getElementById('startButton');
     const startMenu = document.getElementById('startMenu');

@@ -16,6 +16,8 @@ body {
 }
 
 .desktop-icon {
+    text-align: center;
+    padding: 20px;
     height: 100px;
     width: 100px;
 }
