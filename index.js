@@ -7,12 +7,21 @@
 //     agent.speak("Hello World!");
 // })
 
+function selectIcon(e) {
+    e.target.style.outline = "solid blue 1px";
+}
+
 function openMazeSolver() {
     location.href = "./MazeSolver/index.html"
 }
 
+var desktopIcons = document.getElementsByClassName('desktop-icon');
+for (var i = 0; i < desktopIcons.length; i++) {
+    desktopIcons[i].addEventListener('click', selectIcon(e), false);
+}
+
 document.getElementById('startButton').addEventListener('click', function() {
-    const startButton = document.getElementById('startButton');
+    // const startButton = document.getElementById('startButton');
     const startMenu = document.getElementById('startMenu');
     // Toggle visibility of the start menu
     if (startMenu.style.display === "none" || startMenu.style.display === "") {

@@ -17,9 +17,13 @@ body {
 
 .desktop-icon {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     height: 100px;
     width: 100px;
+}
+
+.desktop-icon p {
+    margin: 5px;
 }
 
 .taskbar {
