@@ -17,13 +17,24 @@ body {
 
 .desktop-icon {
     text-align: center;
-    padding: 10px;
+    padding-top: 5px;
+    margin: 5px;
     height: 100px;
     width: 100px;
 }
 
 .desktop-icon p {
-    margin: 5px;
+    margin: 2px;
+}
+
+.desktop-icon:hover {
+    background-color: lightblue;
+    outline: 1px solid lightskyblue;
+}
+
+.selected-icon {
+    background-color: white;
+    outline: 1px solid white;
 }
 
 .taskbar {

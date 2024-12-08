@@ -7,17 +7,15 @@
 //     agent.speak("Hello World!");
 // })
 
-function selectIcon(e) {
-    e.target.style.outline = "solid blue 1px";
-}
-
 function openMazeSolver() {
     location.href = "./MazeSolver/index.html"
 }
 
-var desktopIcons = document.getElementsByClassName('desktop-icon');
-for (var i = 0; i < desktopIcons.length; i++) {
-    desktopIcons[i].addEventListener('click', selectIcon(e), false);
+var desktopIcons = document.querySelectorAll('.desktop-icon');
+for (let i = 0; i < desktopIcons.length; i++) {
+    desktopIcons[i].addEventListener('click', function () {
+        this.classList.toggle('selected-icon');
+    });
 }
 
 document.getElementById('startButton').addEventListener('click', function() {
