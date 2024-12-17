@@ -33,6 +33,7 @@ function solveMaze() {
     // Call the solve method from the start point
     switch(solveMethod) {
         case 'bfsSolve':
+            bfs(start.y, start.x);
             break;
         case 'dfsSolve':
             dfs(start.y, start.x);
@@ -79,6 +80,36 @@ function dfs(x, y) {
         }
 
     return false; // No valid path
+}
+
+/**
+ * Performs a search on neighboring cells to check for a valid path.
+ * Uses the Breadth-First-Search pathfinding algorithm
+ * Returns once pathfinder reaches end OR when it is determined that no solution exists.
+ * @param {number} x Cell row value.
+ * @param {number} y Cell column value.
+ * @returns {boolean} True if valid path is found, False if not.
+ */
+function bfs(x, y) {
+    // Queue to hold path for BFS contains the current path as a parameter
+    const queue = [[x, y, []]];
+
+    while (queue.length > 0) {
+        const [x, y, path] = queue.shift();
+
+        if(x == end.y && y == end.x) {
+            mazeStatus.innerText = 'Found path to end.';
+            return [...path, [x, y]];
+        }
+
+        for(const { row, col } of DIRECTIONS) {
+            if(isValidMove(grid[x][y], grid[row][col])) {
+                grid[row][col].visited = true;
+                queue.push([row, col, [...path, [x, y]]]);
+            }
+        }
+    }
+    return null;
 }
 
 /**
