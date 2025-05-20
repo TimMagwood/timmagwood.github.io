@@ -103,9 +103,11 @@ function bfs(x, y) {
         }
 
         for(const { row, col } of DIRECTIONS) {
-            if(isValidMove(grid[x][y], grid[row][col])) {
-                grid[row][col].visited = true;
-                queue.push([row, col, [...path, [x, y]]]);
+            const nx = x + row;
+            const ny = y + col;
+            if(isValidMove(grid[x][y], grid[nx][ny]) && !grid[nx][ny].visited) {
+                grid[nx][ny].visited = true;
+                queue.push([nx, ny, [...path, [x, y]]]);
             }
         }
     }
