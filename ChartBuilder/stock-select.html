@@ -1,0 +1,24 @@
+<h2>Select Stocks</h2>
+<input type="text" id="stock-search" placeholder="Search stocks..." />
+<div id="stock-options">
+  <!-- Populate with checkboxes or search results -->
+</div>
+<button id="render">Render Chart</button>
+
+<script src="js/state.js"></script>
+<script>
+  const availableStocks = ['AAPL', 'GOOG', 'MSFT', 'AMZN'];
+
+  const stockOptionsDiv = document.getElementById('stock-options');
+  availableStocks.forEach(stock => {
+    const label = document.createElement('label');
+    label.innerHTML = `<input type="checkbox" value="${stock}"/> ${stock}`;
+    stockOptionsDiv.appendChild(label);
+  });
+
+  document.getElementById('render').addEventListener('click', () => {
+    const selected = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.value);
+    localStorage.setItem('selectedStocks', JSON.stringify(selected));
+    window.location.href = 'chart.html';
+  });
+</script>

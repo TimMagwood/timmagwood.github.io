@@ -1,0 +1,13 @@
+<div id="chart"></div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/chart-renderer.js"></script>
+<script>
+  const chartType = localStorage.getItem('chartType');
+  const selectedStocks = JSON.parse(localStorage.getItem('selectedStocks'));
+
+  fetch('data/stocks.json')
+    .then(res => res.json())
+    .then(data => {
+      renderChart(chartType, data, selectedStocks);
+    });
+</script>
