@@ -11,6 +11,10 @@ function openMazeSolver() {
     location.href = "./MazeSolver/index.html"
 }
 
+function openChartBuilder() {
+    location.href = "./ChartBuilder/index.html"
+}
+
 document.getElementById('startButton').addEventListener('click', function() {
     const startButton = document.getElementById('startButton');
     const startMenu = document.getElementById('startMenu');

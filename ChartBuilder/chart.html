@@ -1,13 +1,66 @@
-<div id="chart"></div>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="js/chart-renderer.js"></script>
-<script>
-  const chartType = localStorage.getItem('chartType');
-  const selectedStocks = JSON.parse(localStorage.getItem('selectedStocks'));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Line Chart - Stock Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-  fetch('data/stocks.json')
-    .then(res => res.json())
-    .then(data => {
-      renderChart(chartType, data, selectedStocks);
+  <!-- Dark Mode Toggle -->
+  <div class="theme-toggle">
+    <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="container">
+    <h1>Stock Comparison - Line Chart</h1>
+
+    <input type="text" id="search" placeholder="Search for a stock symbol..." />
+
+    <div id="stock-options">
+      <label><input type="checkbox" value="AAPL" /> AAPL</label>
+      <label><input type="checkbox" value="GOOGL" /> GOOGL</label>
+      <label><input type="checkbox" value="MSFT" /> MSFT</label>
+    </div>
+
+    <button id="render-btn">Render Chart</button>
+
+    <div id="chart"></div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const toggle = document.getElementById('dark-mode-toggle');
+
+    function applyTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      toggle.checked = theme === 'dark';
+    }
+
+    function toggleTheme(e) {
+      const newTheme = e.target.checked ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      applyTheme(newTheme);
+    }
+
+    toggle.addEventListener('change', toggleTheme);
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    // Example chart render hook
+    document.getElementById('render-btn').addEventListener('click', () => {
+      const selected = Array.from(document.querySelectorAll('#stock-options input:checked')).map(cb => cb.value);
+      if (selected.length === 0) return alert('Please select at least one stock.');
+
+      const chartContainer = document.getElementById('chart');
+      chartContainer.innerHTML = `<p>Rendering chart for: <strong>${selected.join(', ')}</strong></p>`;
+      // D3 logic goes here
     });
-</script>
+  </script>
+</body>
+</html>

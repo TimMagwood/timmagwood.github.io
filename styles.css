@@ -22,6 +22,10 @@ body {
     width: 100px;
 }
 
+.desktop-icon-title {
+    margin-top: 8px;
+}
+
 .taskbar {
     display: flex;
     justify-content: space-between;
